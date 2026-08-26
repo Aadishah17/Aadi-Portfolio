@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import { motion } from "motion/react";
+
 const ProjectDetails = ({
   title,
   description,
@@ -10,18 +12,38 @@ const ProjectDetails = ({
   live,
   closeModal,
 }) => {
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        closeModal();
+      }
+    };
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = "unset";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [closeModal]);
+
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center w-full h-full overflow-hidden backdrop-blur-sm p-4">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center w-full h-full overflow-y-auto bg-black/70 backdrop-blur-md p-4"
+      onClick={closeModal}
+    >
       <motion.div
-        className="relative max-w-3xl w-full border shadow-2xl rounded-2xl bg-gradient-to-l from-midnight to-navy border-white/10 overflow-hidden"
-        initial={{ opacity: 0, scale: 0.5 }}
+        className="relative max-w-3xl w-full border shadow-2xl rounded-2xl bg-gradient-to-l from-midnight to-navy border-white/10 overflow-hidden my-auto"
+        initial={{ opacity: 0, scale: 0.85 }}
         animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.2, ease: "easeOut" }}
+        onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={closeModal}
-          className="absolute p-2 rounded-sm top-5 right-5 bg-midnight hover:bg-gray-500 z-10 cursor-pointer"
+          aria-label="Close modal"
+          className="absolute p-2 rounded-lg top-4 right-4 bg-midnight/90 hover:bg-neutral-700/80 transition-colors z-10 cursor-pointer border border-white/10"
         >
-          <img src="assets/close.svg" className="w-6 h-6" />
+          <img src="assets/close.svg" className="w-5 h-5" alt="close" />
         </button>
 
         {layout === "portrait" ? (

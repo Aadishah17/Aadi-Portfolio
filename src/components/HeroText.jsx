@@ -2,7 +2,7 @@ import { FlipWords } from "./FlipWords";
 import { motion } from "motion/react";
 
 const HeroText = () => {
-  const words = ["Full-Stack", "Mobile", "Backend", "AI-Integrated", "Scalable"];
+  const words = ["GPU & CUDA", "Distributed", "High-Performance", "Full-Stack", "AI-Integrated"];
   const variants = {
     hidden: { opacity: 0, x: -50 },
     visible: { opacity: 1, x: 0 },
@@ -51,7 +51,7 @@ const HeroText = () => {
             Modern & Scalable Systems
           </motion.p>
           <motion.a
-            href="/Aadi_Shah_Resume.pdf"
+            href="Aadi_Shah_Resume.pdf"
             download="Aadi_Shah_Resume.pdf"
             className="inline-flex items-center gap-2 mt-8 px-6 py-3 text-sm font-semibold rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-white hover:bg-white/10 hover:border-white/20 hover-animation cursor-pointer z-20"
             variants={variants}
@@ -108,7 +108,7 @@ const HeroText = () => {
             Applications
           </motion.p>
           <motion.a
-            href="/Aadi_Shah_Resume.pdf"
+            href="Aadi_Shah_Resume.pdf"
             download="Aadi_Shah_Resume.pdf"
             className="inline-flex items-center gap-2 mt-8 px-6 py-3 text-sm font-semibold rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-white hover:bg-white/10 hover-animation cursor-pointer z-20"
             variants={variants}

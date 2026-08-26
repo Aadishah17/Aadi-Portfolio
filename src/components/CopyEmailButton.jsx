@@ -5,12 +5,34 @@ const CopyEmailButton = () => {
   const email = "shahaadi285@gmail.com";
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(email);
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(email).catch(() => {
+        fallbackCopy(email);
+      });
+    } else {
+      fallbackCopy(email);
+    }
     setCopied(true);
-
     setTimeout(() => {
       setCopied(false);
     }, 2000);
+  };
+
+  const fallbackCopy = (text) => {
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    textArea.style.position = "fixed";
+    textArea.style.left = "-999999px";
+    textArea.style.top = "-999999px";
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    try {
+      document.execCommand("copy");
+    } catch (err) {
+      console.error("Fallback copy failed", err);
+    }
+    document.body.removeChild(textArea);
   };
   return (
     <motion.button
@@ -30,7 +52,7 @@ const CopyEmailButton = () => {
             transition={{ duration: 0.1, ease: "easeInOut" }}
           >
             <img src="assets/copy-done.svg" className="w-5" alt="copy Icon" />
-            Email has Copied
+            Email Copied!
           </motion.p>
         ) : (
           <motion.p

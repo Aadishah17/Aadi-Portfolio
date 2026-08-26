@@ -58,7 +58,7 @@ const Contact = () => {
     }
   };
   return (
-    <section className="relative flex items-center c-space section-spacing">
+    <section id="contact" className="relative flex items-center c-space section-spacing">
       <Particles
         className="absolute inset-0 -z-50"
         quantity={100}
@@ -67,13 +67,26 @@ const Contact = () => {
         refresh
       />
       {showAlert && <Alert type={alertType} text={alertMessage} />}
-      <div className="flex flex-col items-center justify-center max-w-md p-5 mx-auto border border-white/10 rounded-2xl bg-primary">
-        <div className="flex flex-col items-start w-full gap-5 mb-10">
-          <h2 className="text-heading">Let's Talk</h2>
-          <p className="font-normal text-neutral-400">
-            Whether you're looking to build a new website, improve your existing
-            platform, or bring a unique project to life, I'm here to help
+      <div className="flex flex-col items-center justify-center max-w-lg p-6 sm:p-8 mx-auto border border-white/10 rounded-2xl bg-primary w-full">
+        <div className="flex flex-col items-start w-full gap-3 mb-8">
+          <h2 className="text-heading">Get in Touch</h2>
+          <p className="font-normal text-neutral-400 text-sm leading-relaxed">
+            Interested in discussing GPU computing, distributed architectures, software engineering opportunities, or collaborating on high-performance projects? Let's connect.
           </p>
+          <div className="flex flex-col gap-2 pt-2 text-xs text-neutral-400 border-t border-white/10 w-full">
+            <p className="flex items-center gap-2">
+              <span className="text-lavender font-semibold">Email:</span>
+              <a href="mailto:shahaadi285@gmail.com" className="hover:text-white transition-colors">shahaadi285@gmail.com</a>
+            </p>
+            <p className="flex items-center gap-2">
+              <span className="text-lavender font-semibold">Phone:</span>
+              <a href="tel:+919819427909" className="hover:text-white transition-colors">+91 9819427909</a>
+            </p>
+            <p className="flex items-center gap-2">
+              <span className="text-lavender font-semibold">Location:</span>
+              <span>Mumbai, Maharashtra, India</span>
+            </p>
+          </div>
         </div>
         <form className="w-full" onSubmit={handleSubmit}>
           <div className="mb-5">
