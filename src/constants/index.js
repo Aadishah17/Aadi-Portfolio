@@ -3,20 +3,23 @@ export const myProjects = [
     id: 1,
     title: "CUDADL",
     description:
-      "A C++17/CUDA tensor framework with a stream-ordered memory pool and mixed-precision Tensor Core matrix multiplication.",
+      "High-performance GPU deep learning primitives and memory management engine with custom Tensor Core GEMM kernels and stream-ordered memory pools.",
     subDescription: [
-      "A cudaMallocAsync memory pool measured 253× lower allocation latency than raw cudaMalloc/cudaFree for a 64 MB buffer over 1,000 iterations.",
-      "The FP16/BF16 Tensor Core GEMM reached 97% of cuBLAS throughput at 512×512; results vary by matrix size.",
-      "The framework supports FP32, FP16 and BF16, with fused Bias+ReLU/GELU kernels measured up to 1.6× faster than separate operations.",
-      "Automatic differentiation is still in progress.",
+      "Built a stream-ordered GPU memory pool (cudaMallocAsync, RAII-managed buffers) that cut allocation latency up to 253x versus raw cudaMalloc/cudaFree, benchmarked across 1MB-64MB buffer sizes.",
+      "Hand-wrote a Tensor Core GEMM kernel (nvcuda::wmma, FP16/BF16 mixed precision) reaching up to 97% of cuBLAS throughput and a 4.9x speedup over a naive CUDA implementation.",
+      "Built a mixed-precision tensor framework (FP32/FP16/BF16 with automatic type promotion) and fused bias+activation CUDA kernels (Bias+ReLU, Bias+GELU), cutting global memory passes by 50% for up to a 1.6x speedup.",
+      "Engineered multi-stream asynchronous execution with DMA overlap, CUDA Graph-captured workload execution, and an occupancy-driven auto-launch configurator (CUDA Occupancy API) targeting 100% theoretical SM occupancy.",
     ],
-    github: "https://github.com/Aadishah17/cuda",
+    github: "https://github.com/Aadishah17/CUDADL",
     live: "",
+    logo: "",
+    image: "assets/projects/game-engine.jpg",
+    layout: "landscape",
     tags: [
       {
         id: 1,
         name: "Modern C++17",
-        path: "/assets/logos/cplusplus.svg",
+        path: "assets/logos/cplusplus.svg",
       },
       {
         id: 2,
@@ -35,7 +38,7 @@ export const myProjects = [
       },
       {
         id: 5,
-        name: "Tensor Cores",
+        name: "GPU Systems",
         path: "",
       },
     ],
@@ -44,38 +47,41 @@ export const myProjects = [
     id: 2,
     title: "CloudPrint",
     description:
-      "A .NET 10 print-management platform with a REST API, PostgreSQL job store, background worker and optional Azure Service Bus.",
+      "Distributed enterprise print-management platform in .NET 10 with Azure Service Bus messaging, exactly-once processing, and a real-time chaos-testing lab.",
     subDescription: [
-      "PostgreSQL polling recovers jobs when publishing fails; Azure Service Bus is an optional messaging path.",
-      "Workers claim jobs with expiring leases, retry transient failures with backoff, and pass an idempotency key to the printer simulator so completed jobs are not repeated after redelivery.",
-      "The dashboard shows printer and job status and includes failure injection and concurrent batch dispatch for local testing.",
+      "Architected a distributed print-management platform in .NET 10 with a REST API, PostgreSQL persistence, and an Azure Service Bus messaging overlay, using durable database polling as an automatic recovery path for failed or duplicate delivery.",
+      "Engineered lease-based job claims, X-Idempotency-Key enforcement, and exponential-backoff retries to guarantee exactly-once printing under duplicate message redelivery or worker failover.",
+      "Built a real-time web dashboard with a live pipeline visualizer, fleet KPIs, and a configurable chaos-testing lab (failure-rate injection, concurrent batch dispatch) to validate worker throughput and fault tolerance.",
     ],
     github: "https://github.com/Aadishah17/CloudPrint",
     live: "",
+    logo: "",
+    image: "assets/projects/blazor-app.jpg",
+    layout: "landscape",
     tags: [
       {
         id: 1,
-        name: "C#",
-        path: "/assets/logos/csharp.svg",
+        name: "C# / .NET 10",
+        path: "assets/logos/dotnetcore.svg",
       },
       {
         id: 2,
-        name: ".NET 10",
-        path: "/assets/logos/dotnetcore.svg",
-      },
-      {
-        id: 3,
         name: "PostgreSQL",
         path: "",
       },
       {
-        id: 4,
+        id: 3,
         name: "Azure Service Bus",
-        path: "/assets/logos/azure.svg",
+        path: "assets/logos/azure.svg",
+      },
+      {
+        id: 4,
+        name: "Docker",
+        path: "",
       },
       {
         id: 5,
-        name: "Docker",
+        name: "REST API",
         path: "",
       },
     ],
@@ -84,19 +90,22 @@ export const myProjects = [
     id: 3,
     title: "CollabLearn",
     description:
-      "A MERN learning platform with Gemini-powered course recommendations.",
+      "Full-stack MERN skill-learning platform featuring AI-powered course recommendations via the Gemini API, deployed live on Vercel.",
     subDescription: [
-      "Added a course recommendation flow using the Gemini API.",
-      "Targeted MongoDB indexes cut Gemini API response latency by 30%.",
-      "Used Google OAuth2 for sign-in and Redux for client-side state.",
+      "Built a full-stack MERN skill-learning platform with AI-powered course recommendations via the Gemini API, deployed live on Vercel.",
+      "Cut Gemini API response latency 30% by designing targeted MongoDB indexes, directly improving perceived app performance.",
+      "Implemented Google OAuth2 authentication and Redux-based state management to support a production-style full-stack architecture.",
     ],
     github: "https://github.com/Aadishah17/CollabLearn",
-    live: "https://collab-learn-xi.vercel.app",
+    live: "https://collablearn.vercel.app",
+    logo: "",
+    image: "assets/projects/collablearn_mockup.png",
+    layout: "landscape",
     tags: [
       {
         id: 1,
         name: "React.js",
-        path: "/assets/logos/react.svg",
+        path: "assets/logos/react.svg",
       },
       {
         id: 2,
@@ -120,114 +129,32 @@ export const myProjects = [
       },
     ],
   },
-  {
-    id: 4,
-    title: "GoldenHour",
-    description:
-      "An Android emergency-response prototype with victim-triage prompts and a simulated hospital dashboard.",
-    subDescription: [
-      "Collects a location, walks a bystander through a basic victim assessment, and offers one-tap calls to 108/112.",
-      "Built with MVVM, Hilt and Coroutines/Flow; the hospital dashboard simulates ambulance telemetry.",
-    ],
-    github: "https://github.com/Aadishah17/golden-hour",
-    live: "",
-    tags: [
-      {
-        id: 1,
-        name: "Kotlin",
-        path: "",
-      },
-      {
-        id: 2,
-        name: "Jetpack Compose",
-        path: "",
-      },
-      {
-        id: 3,
-        name: "MVVM",
-        path: "",
-      },
-      {
-        id: 4,
-        name: "Hilt DI",
-        path: "",
-      },
-      {
-        id: 5,
-        name: "Coroutines/Flow",
-        path: "",
-      },
-    ],
-  },
-  {
-    id: 5,
-    title: "Kompass",
-    description:
-      "An offline iOS navigation prototype with GPS tracking and a local route and ETA calculator.",
-    subDescription: [
-      "Uses CoreLocation for GPS and MapKit for maps without network requests.",
-      "Route estimates use a direct-line Haversine calculation; they do not follow road routes.",
-    ],
-    github: "https://github.com/Aadishah17/kompass",
-    live: "",
-    tags: [
-      {
-        id: 1,
-        name: "Swift",
-        path: "",
-      },
-      {
-        id: 2,
-        name: "SwiftUI",
-        path: "",
-      },
-      {
-        id: 3,
-        name: "MapKit",
-        path: "",
-      },
-      {
-        id: 4,
-        name: "CoreLocation",
-        path: "",
-      },
-      {
-        id: 5,
-        name: "Haversine Routing",
-        path: "",
-      },
-    ],
-  },
 ];
 
 export const mySocials = [
   {
     name: "GitHub",
     href: "https://github.com/Aadishah17",
-    icon: `${import.meta.env.BASE_URL}assets/logos/github.svg`,
+    icon: "assets/logos/github.svg",
   },
   {
-    name: "Linkedin",
-    href: "https://linkedin.com/in/aadi-shah-6535672a6",
-    icon: `${import.meta.env.BASE_URL}assets/socials/linkedIn.svg`,
-  },
-  {
-    name: "LeetCode",
-    href: "https://leetcode.com/u/Aadi__17",
-    icon: `${import.meta.env.BASE_URL}assets/socials/leetcode.svg`,
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/aadi-shah-6535672a6",
+    icon: "assets/socials/linkedIn.svg",
   },
   {
     name: "WhatsApp",
     href: "https://wa.me/919819427909",
-    icon: `${import.meta.env.BASE_URL}assets/socials/whatsApp.svg`,
+    icon: "assets/socials/whatsApp.svg",
   },
 ];
 
 export const experiences = [
   {
     title: "Software Engineering Intern",
-    job: "ZM Lifestyle (Hybrid, Mumbai)",
+    job: "ZM Lifestyle",
     date: "May 2025 – June 2025",
+    location: "Hybrid, Mumbai",
     contents: [
       "Designed, implemented, and shipped React.js features for the core product dashboard within a five-engineer Agile team.",
       "Diagnosed and resolved 10+ defects in the legacy codebase, improving application stability by 15% and reducing incoming error reports.",
@@ -236,61 +163,13 @@ export const experiences = [
   },
   {
     title: "B.Tech in Computer Science & Engineering",
-    job: "Parul University · Vadodara, Gujarat",
+    job: "Parul University",
     date: "2023 – Expected May 2027",
+    location: "Vadodara, Gujarat, India",
     contents: [
-      "B.Tech in Computer Science & Engineering; expected graduation May 2027.",
+      "Pursuing Bachelor of Technology in Computer Science & Engineering with comprehensive coursework in Systems Programming, Distributed Computing, Database Management, and Algorithm Optimization.",
+      "Max LeetCode contest rating ~1650 with 400+ problems solved across Arrays, Trees, Graphs, Dynamic Programming, and Greedy algorithms.",
+      "Earned industry certifications including IBM AI Fundamentals and AWS Academy Cloud Foundations.",
     ],
-  },
-];
-
-export const reviews = [
-  {
-    name: "Jack",
-    username: "@jack",
-    body: "I've never seen anything like this before. It's amazing. I love it.",
-    img: "https://robohash.org/jack",
-  },
-  {
-    name: "Jill",
-    username: "@jill",
-    body: "I don't know what to say. I'm speechless. This is amazing.",
-    img: "https://robohash.org/jill",
-  },
-  {
-    name: "John",
-    username: "@john",
-    body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://robohash.org/john",
-  },
-  {
-    name: "Alice",
-    username: "@alice",
-    body: "This is hands down the best thing I've experienced. Highly recommend!",
-    img: "https://robohash.org/alice",
-  },
-  {
-    name: "Bob",
-    username: "@bob",
-    body: "Incredible work! The attention to detail is phenomenal.",
-    img: "https://robohash.org/bob",
-  },
-  {
-    name: "Charlie",
-    username: "@charlie",
-    body: "This exceeded all my expectations. Absolutely stunning!",
-    img: "https://robohash.org/charlie",
-  },
-  {
-    name: "Dave",
-    username: "@dave",
-    body: "Simply breathtaking. The best decision I've made in a while.",
-    img: "https://robohash.org/dave",
-  },
-  {
-    name: "Eve",
-    username: "@eve",
-    body: "So glad I found this. It has changed the game for me.",
-    img: "https://robohash.org/eve",
   },
 ];

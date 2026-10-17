@@ -1,7 +1,7 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import Alert from "../components/Alert";
-
+import { Particles } from "../components/Particles";
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -12,11 +12,9 @@ const Contact = () => {
   const [showAlert, setShowAlert] = useState(false);
   const [alertType, setAlertType] = useState("success");
   const [alertMessage, setAlertMessage] = useState("");
-
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
   const showAlertMessage = (type, message) => {
     setAlertType(type);
     setAlertMessage(message);
@@ -25,12 +23,12 @@ const Contact = () => {
       setShowAlert(false);
     }, 5000);
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
 
     try {
+      console.log("Form submitted:", formData);
       await emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_79b0nyj",
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_17us8im",
@@ -45,9 +43,10 @@ const Contact = () => {
       );
       setIsLoading(false);
       setFormData({ name: "", email: "", message: "" });
-      showAlertMessage("success", "Your message has been sent successfully!");
+      showAlertMessage("success", "Your message has been sent!");
     } catch (error) {
       console.error("EmailJS Error:", error);
+      // Fallback redirection to Gmail Webmail Compose
       const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=shahaadi285@gmail.com&su=${encodeURIComponent(
         `Portfolio Contact from ${formData.name}`
       )}&body=${encodeURIComponent(
@@ -55,87 +54,95 @@ const Contact = () => {
       )}`;
       window.open(gmailUrl, "_blank");
       setIsLoading(false);
-      showAlertMessage("success", "Opening Gmail compose window in a new tab!");
+      showAlertMessage("success", "Opening Gmail compose in a new tab!");
     }
   };
-
   return (
-    <section className="flex items-center justify-center c-space section-spacing" id="contact">
+    <section id="contact" className="relative flex items-center c-space section-spacing">
+      <Particles
+        className="absolute inset-0 -z-50"
+        quantity={100}
+        ease={80}
+        color={"#ffffff"}
+        refresh
+      />
       {showAlert && <Alert type={alertType} text={alertMessage} />}
-
-      <div className="flex w-full max-w-xl flex-col items-center justify-center rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-10">
-        <div className="flex flex-col items-start w-full gap-2 mb-8">
-          <h2 className="text-heading">Send me a note</h2>
-          <p className="mt-1 text-sm font-normal leading-relaxed text-neutral-400">
-            Have a question about a project, CUDA, or something else? Leave me a message here.
+      <div className="flex flex-col items-center justify-center max-w-lg p-6 sm:p-8 mx-auto border border-white/10 rounded-2xl bg-primary w-full">
+        <div className="flex flex-col items-start w-full gap-3 mb-8">
+          <h2 className="text-heading">Get in Touch</h2>
+          <p className="font-normal text-neutral-400 text-sm leading-relaxed">
+            Interested in discussing GPU computing, distributed architectures, software engineering opportunities, or collaborating on high-performance projects? Let's connect.
           </p>
+          <div className="flex flex-col gap-2 pt-2 text-xs text-neutral-400 border-t border-white/10 w-full">
+            <p className="flex items-center gap-2">
+              <span className="text-lavender font-semibold">Email:</span>
+              <a href="mailto:shahaadi285@gmail.com" className="hover:text-white transition-colors">shahaadi285@gmail.com</a>
+            </p>
+            <p className="flex items-center gap-2">
+              <span className="text-lavender font-semibold">Phone:</span>
+              <a href="tel:+919819427909" className="hover:text-white transition-colors">+91 9819427909</a>
+            </p>
+            <p className="flex items-center gap-2">
+              <span className="text-lavender font-semibold">Location:</span>
+              <span>Mumbai, Maharashtra, India</span>
+            </p>
+          </div>
         </div>
-
-        <form className="w-full space-y-5" onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="name" className="field-label text-neutral-300">
-              Name
+        <form className="w-full" onSubmit={handleSubmit}>
+          <div className="mb-5">
+            <label htmlFor="name" className="field-label">
+              Full Name
             </label>
             <input
               id="name"
               name="name"
               type="text"
-              className="field-input field-input-focus bg-white/5 border border-white/10 text-white rounded-xl px-4 py-3 focus:border-royal/50 focus:ring-2 focus:ring-royal/30 transition-all placeholder:text-neutral-500"
-              placeholder="Your name"
+              className="field-input field-input-focus"
+              placeholder="John Doe"
               autoComplete="name"
               value={formData.name}
               onChange={handleChange}
               required
             />
           </div>
-
-          <div>
-            <label htmlFor="email" className="field-label text-neutral-300">
-              Email Address
+          <div className="mb-5">
+            <label htmlFor="email" className="field-label">
+              Email
             </label>
             <input
               id="email"
               name="email"
               type="email"
-              className="field-input field-input-focus bg-white/5 border border-white/10 text-white rounded-xl px-4 py-3 focus:border-royal/50 focus:ring-2 focus:ring-royal/30 transition-all placeholder:text-neutral-500"
-              placeholder="you@example.com"
+              className="field-input field-input-focus"
+              placeholder="JohnDoe@email.com"
               autoComplete="email"
               value={formData.email}
               onChange={handleChange}
               required
             />
           </div>
-
-          <div>
-            <label htmlFor="message" className="field-label text-neutral-300">
+          <div className="mb-5">
+            <label htmlFor="message" className="field-label">
               Message
             </label>
             <textarea
               id="message"
               name="message"
+              type="text"
               rows="4"
-              className="field-input field-input-focus bg-white/5 border border-white/10 text-white rounded-xl px-4 py-3 focus:border-royal/50 focus:ring-2 focus:ring-royal/30 transition-all placeholder:text-neutral-500"
-              placeholder="Write your message..."
-              autoComplete="off"
+              className="field-input field-input-focus"
+              placeholder="Share your thoughts..."
+              autoComplete="message"
               value={formData.message}
               onChange={handleChange}
               required
             />
           </div>
-
           <button
             type="submit"
-            disabled={isLoading}
-            className="w-full rounded-xl bg-white py-4 text-center text-sm font-semibold text-primary transition-colors hover:bg-neutral-200 active:scale-[0.99] disabled:opacity-50"
+            className="w-full px-1 py-3 text-lg text-center rounded-md cursor-pointer bg-radial from-lavender to-royal hover-animation"
           >
-            {isLoading ? (
-              <span className="flex items-center justify-center gap-2">
-                <span className="size-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                Sending Message...
-              </span>
-            ) : (
-              "Send message"
-            )}
+            {!isLoading ? "Send" : "Sending..."}
           </button>
         </form>
       </div>
