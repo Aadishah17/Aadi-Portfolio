@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap");
-@import "tailwindcss";
+@import "tailwindcss" source("../src");
 @theme {
   --color-primary: #030412;
   --color-midnight: #06091f;
@@ -115,6 +115,20 @@ body {
 
 .grid-default-color {
   @apply p-6 bg-gradient-to-b from-storm to-indigo rounded-2xl;
+}
+
+.tech-stack-card {
+  height: auto;
+  min-height: 24rem;
+  padding: 1rem;
+}
+
+@media (width >= 48rem) {
+  .tech-stack-card {
+    height: 100%;
+    min-height: 18rem;
+    padding: 1.5rem;
+  }
 }
 
 .grid-special-color {

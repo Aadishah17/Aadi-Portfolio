@@ -2,7 +2,7 @@ import { useRef } from "react";
 import Card from "../components/Card";
 import { Globe } from "../components/globe";
 import CopyEmailButton from "../components/CopyEmailButton";
-import { Frameworks } from "../components/Frameworks";
+import { TechStack } from "../components/TechStack";
 
 const About = () => {
   const grid2Container = useRef();
@@ -134,21 +134,15 @@ const About = () => {
             </div>
           </div>
         </div>
-        {/* Grid 5 */}
-        <div className="grid-default-color grid-5">
-          <div className="z-10 w-[55%]">
-            <p className="headtext">Technical Skills</p>
-            <div className="subtext mt-2 space-y-1 text-xs">
-              <p><strong>Languages:</strong> C++, C#, Kotlin, Java, JavaScript, TypeScript, Python, SQL, Swift</p>
-              <p><strong>Systems & Performance:</strong> CUDA, cuBLAS, Gemini API</p>
-              <p><strong>Frameworks & Libraries:</strong> React.js, Node.js, Express.js, ASP.NET Core, Jetpack Compose, Next.js</p>
-              <p><strong>Databases:</strong> MongoDB, MySQL, PostgreSQL, Redis, Firebase</p>
-              <p><strong>Developer Tools:</strong> Git, CMake, Android Studio, Docker, GitHub Actions, Postman, Azure</p>
-            </div>
+        {/* Grid 5 - Tech Stack */}
+        <div className="grid-default-color grid-5 tech-stack-card flex flex-col">
+          <div className="mb-3">
+            <p className="headtext mt-0 mb-1">Tech Stack</p>
+            <p className="text-xs text-neutral-400">
+              Recent work spans GPU systems, mobile apps, and backend services.
+            </p>
           </div>
-          <div className="absolute inset-y-0 md:inset-y-9 w-full h-full start-[50%] md:scale-125">
-            <Frameworks />
-          </div>
+          <TechStack />
         </div>
       </div>
     </section>
