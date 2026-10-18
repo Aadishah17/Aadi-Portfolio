@@ -5,6 +5,7 @@ const outerLogos = [
   "csharp.svg",
   "javascript.svg",
   "react.svg",
+  "angular.svg",
   "python.svg",
   "kotlin.svg",
   "swift.svg",
