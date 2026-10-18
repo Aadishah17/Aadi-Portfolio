@@ -2,6 +2,7 @@ import { useRef } from "react";
 import Card from "../components/Card";
 import { Globe } from "../components/globe";
 import CopyEmailButton from "../components/CopyEmailButton";
+import { Frameworks } from "../components/Frameworks";
 import { TechStack } from "../components/TechStack";
 
 const About = () => {
@@ -139,10 +140,15 @@ const About = () => {
           <div className="mb-3">
             <p className="headtext mt-0 mb-1">Tech Stack</p>
             <p className="text-xs text-neutral-400">
-              Recent work spans GPU systems, mobile apps, and backend services.
+              Technologies used across GPU, web, backend, and mobile projects.
             </p>
           </div>
-          <TechStack />
+          <div className="grid min-h-0 min-w-0 flex-1 grid-cols-1 items-center gap-2 md:grid-cols-[minmax(0,1fr)_15rem]">
+            <TechStack />
+            <div aria-hidden="true" className="relative mx-auto flex h-[15rem] w-full max-w-[15rem] items-center justify-center">
+              <Frameworks />
+            </div>
+          </div>
         </div>
       </div>
     </section>
