@@ -5,6 +5,8 @@ const outerLogos = [
   "csharp.svg",
   "javascript.svg",
   "react.svg",
+  "python.svg",
+  "kotlin.svg",
 ];
 
 const innerLogos = [
@@ -12,6 +14,8 @@ const innerLogos = [
   "azure.svg",
   "github.svg",
   "git.svg",
+  "docker.svg",
+  "postgresql.svg",
 ];
 
 const Logo = ({ name }) => (
