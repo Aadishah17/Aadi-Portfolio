@@ -111,9 +111,11 @@ const About = () => {
         {/* Grid 5 - Tech Stack */}
         <div className="grid-default-color grid-5 tech-stack-card flex flex-col">
           <p className="headtext mt-0 mb-3">Tech Stack</p>
-          <div className="grid min-h-0 min-w-0 flex-1 grid-cols-1 items-center gap-2 sm:grid-cols-[minmax(0,1fr)_13rem]">
-            <TechStack />
-            <div aria-hidden="true" className="relative mx-auto flex h-48 w-full max-w-48 items-center justify-center">
+          <div className="relative min-h-0 min-w-0 flex-1">
+            <div className="relative z-10 w-[70%] sm:w-[62%]">
+              <TechStack />
+            </div>
+            <div aria-hidden="true" className="absolute top-1/2 right-[-7.5rem] flex size-48 -translate-y-1/2 items-center justify-center">
               <Frameworks />
             </div>
           </div>
