@@ -115,7 +115,7 @@ const About = () => {
             <div className="relative z-10 w-[50%] sm:w-[62%]">
               <TechStack />
             </div>
-            <div aria-hidden="true" className="pointer-events-none absolute top-1/2 right-[-13rem] flex size-96 -translate-y-1/2 items-center justify-center sm:scale-75 md:right-[-13.5rem] md:scale-[0.7]">
+            <div aria-hidden="true" className="pointer-events-none absolute top-1/2 right-[-13rem] flex size-96 -translate-y-1/2 items-center justify-center sm:scale-75 md:right-[-13.5rem]">
               <Frameworks />
             </div>
           </div>
