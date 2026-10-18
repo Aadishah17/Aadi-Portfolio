@@ -18,6 +18,10 @@ const innerLogos = [
   "docker.svg",
   "postgresql.svg",
   "xcode.svg",
+  "tailwindcss.svg",
+  "visualstudiocode.svg",
+  "amazonwebservices.svg",
+  "cloudflare.svg",
 ];
 
 const Logo = ({ name }) => (
