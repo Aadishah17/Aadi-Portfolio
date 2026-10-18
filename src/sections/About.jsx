@@ -112,10 +112,10 @@ const About = () => {
         <div className="grid-default-color grid-5 tech-stack-card flex flex-col">
           <p className="headtext mt-0 mb-3">Tech Stack</p>
           <div className="relative min-h-0 min-w-0 flex-1">
-            <div className="relative z-10 w-[70%] sm:w-[62%]">
+            <div className="relative z-10 w-[50%] sm:w-[62%]">
               <TechStack />
             </div>
-            <div aria-hidden="true" className="absolute top-1/2 right-[-7.5rem] flex size-48 -translate-y-1/2 items-center justify-center">
+            <div aria-hidden="true" className="pointer-events-none absolute top-1/2 right-[-13rem] flex size-96 -translate-y-1/2 items-center justify-center sm:scale-75 md:right-[-13.5rem] md:scale-[0.7]">
               <Frameworks />
             </div>
           </div>

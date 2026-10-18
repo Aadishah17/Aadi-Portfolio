@@ -30,12 +30,12 @@ const Logo = ({ name }) => (
 export function Frameworks() {
   return (
     <div className="relative flex size-full items-center justify-center">
-      <OrbitingCircles iconSize={30} radius={82}>
+      <OrbitingCircles iconSize={40} radius={160}>
         {outerLogos.map((name) => (
           <Logo key={name} name={name} />
         ))}
       </OrbitingCircles>
-      <OrbitingCircles iconSize={20} radius={50} reverse speed={1.5}>
+      <OrbitingCircles iconSize={25} radius={100} reverse speed={1.5}>
         {innerLogos.map((name) => (
           <Logo key={name} name={name} />
         ))}
