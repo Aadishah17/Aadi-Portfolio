@@ -1,64 +1,35 @@
-# 🚀 3D Developer Portfolio — Aadi Shah
+# Aadi Shah — Portfolio
 
-A modern, animated 3D developer portfolio built with React, Three.js, TailwindCSS, and motion effects.
+An animated 3D portfolio for my work across CUDA, mobile apps, backend systems, and web projects.
 
-Live at: **[https://aadishah17.github.io/Aadi-Portfolio/](https://aadishah17.github.io/Aadi-Portfolio/)**
+**Live site:** [aadishah17.github.io/Aadi-Portfolio](https://aadishah17.github.io/Aadi-Portfolio/)
 
----
+The visual direction and 3D portfolio structure are adapted from [Ali-Sanati/Portfolio](https://github.com/Ali-Sanati/Portfolio). The profile, project details, resume, links, and metrics here are specific to my work.
 
-## ✨ Features
+## Projects featured
 
-- 🔥 3D visuals powered by **React Three Fiber** and **Drei**
-- ⚡ Smooth transitions and scroll-based animations using **Motion**
-- 🎨 Clean, responsive UI with **TailwindCSS**
-- 💌 Working contact form using **EmailJS**
-- 🚀 Lightning-fast development with **Vite**
+- **CUDADL** — C++17/CUDA deep-learning framework with a stream-ordered memory pool and Tensor Core GEMM.
+- **CloudPrint** — .NET 10 print-management platform with PostgreSQL, Azure Service Bus, and worker recovery.
+- **CollabLearn** — MERN skill-learning platform with Gemini API recommendations.
+- **GoldenHour** — Android emergency-response prototype with location sharing and triage.
+- **Kompass** — SwiftUI navigation app with offline routing.
 
----
+## Stack
 
-## 🛠 Tech Stack
+React, Vite, Tailwind CSS, React Three Fiber, Drei, Three.js, Motion, and Cobe.
 
-| Tech | Description |
-|---|---|
-| React 19 | Front-end JavaScript library |
-| Vite | Fast bundler and dev environment |
-| TailwindCSS 4 | Utility-first CSS framework |
-| React Three Fiber | 3D rendering with Three.js in React |
-| Drei | Helpers and abstractions for R3F |
-| Motion | Animation library for React |
-| EmailJS | Form handling and email integration |
+## Run locally
 
----
-
-## 🚀 Getting Started
-
-1. **Clone the Repository**
 ```bash
-git clone https://github.com/Aadishah17/Aadi-Portfolio.git
-cd Aadi-Portfolio
-```
-
-2. **Install Dependencies**
-```bash
-npm install
-```
-
-3. **Run the Development Server**
-```bash
+npm ci
 npm run dev
 ```
-The app will be available at `http://localhost:5173`.
 
----
+Check the production build and lint with:
 
-## 📬 Contact
+```bash
+npm run build
+npm run lint
+```
 
-- **GitHub:** [Aadishah17](https://github.com/Aadishah17)
-- **LinkedIn:** [Aadi Shah](https://www.linkedin.com/in/aadi-shah-6535672a6)
-- **Email:** shahaadi285@gmail.com
-
----
-
-## 📄 License
-
-© 2026 Aadi Shah. All rights reserved.
+GitHub Actions deploys `main` to GitHub Pages. The Vite base path is `/Aadi-Portfolio/` so project assets resolve under the existing live URL.

@@ -1,35 +1,35 @@
 import { useState } from "react";
 import { motion } from "motion/react";
-function Navigation() {
+function Navigation({ onNavigate }) {
   return (
     <ul className="nav-ul">
       <li className="nav-li">
-        <a className="nav-link" href="#home">
+        <a className="nav-link" href="#home" onClick={onNavigate}>
           Home
         </a>
       </li>
       <li className="nav-li">
-        <a className="nav-link" href="#about">
+        <a className="nav-link" href="#about" onClick={onNavigate}>
           About
         </a>
       </li>
       <li className="nav-li">
-        <a className="nav-link" href="#projects">
+        <a className="nav-link" href="#projects" onClick={onNavigate}>
           Projects
         </a>
       </li>
       <li className="nav-li">
-        <a className="nav-link" href="#experience">
+        <a className="nav-link" href="#experience" onClick={onNavigate}>
           Experience
         </a>
       </li>
       <li className="nav-li">
-        <a className="nav-link" href="#achievements">
+        <a className="nav-link" href="#achievements" onClick={onNavigate}>
           Achievements
         </a>
       </li>
       <li className="nav-li">
-        <a className="nav-link" href="#contact">
+        <a className="nav-link" href="#contact" onClick={onNavigate}>
           Contact
         </a>
       </li>
@@ -49,30 +49,35 @@ const Navbar = () => {
             Aadi Shah
           </a>
           <button
+            type="button"
             onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={isOpen}
+            aria-controls="mobile-navigation"
             className="flex cursor-pointer text-neutral-400 hover:text-white focus:outline-none sm:hidden"
           >
             <img
               src={isOpen ? "assets/close.svg" : "assets/menu.svg"}
               className="w-6 h-6"
-              alt="toggle"
+              alt=""
             />
           </button>
-          <nav className="hidden sm:flex">
+          <nav aria-label="Main navigation" className="hidden sm:flex">
             <Navigation />
           </nav>
         </div>
       </div>
       {isOpen && (
         <motion.div
+          id="mobile-navigation"
           className="block overflow-hidden text-center sm:hidden"
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
           style={{ maxHeight: "100vh" }}
           transition={{ duration: 1 }}
         >
-          <nav className="pb-5">
-            <Navigation />
+          <nav aria-label="Mobile navigation" className="pb-5">
+            <Navigation onNavigate={() => setIsOpen(false)} />
           </nav>
         </motion.div>
       )}

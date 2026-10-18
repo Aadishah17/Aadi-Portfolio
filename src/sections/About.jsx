@@ -2,6 +2,7 @@ import { useRef } from "react";
 import Card from "../components/Card";
 import { Globe } from "../components/globe";
 import CopyEmailButton from "../components/CopyEmailButton";
+import { Frameworks } from "../components/Frameworks";
 import { TechStack } from "../components/TechStack";
 
 const About = () => {
@@ -20,7 +21,7 @@ const About = () => {
           <div className="z-10">
             <p className="headtext">Hi, I'm Aadi Shah</p>
             <p className="subtext">
-              I am a Computer Science & Engineering student at Parul University and software developer passionate about GPU acceleration (CUDA, cuBLAS), distributed backend systems (.NET 10, Azure), modern full-stack web platforms, and AI integration.
+              I'm studying Computer Science & Engineering at Parul University. Recent projects range from CUDA memory and Tensor Core kernels to a .NET print service and an iOS navigation app built to work offline.
             </p>
           </div>
           <div className="absolute inset-x-0 pointer-events-none -bottom-4 h-1/2 sm:h-1/3 bg-gradient-to-t from-indigo" />
@@ -35,68 +36,43 @@ const About = () => {
               BUILD TO SCALE
             </p>
             <Card
-              style={{ rotate: "-5deg", top: "5%", left: "5%" }}
+              style={{ rotate: "-5deg", top: "8%", left: "5%" }}
               text="CUDA & cuBLAS"
               containerRef={grid2Container}
             />
             <Card
-              style={{ rotate: "10deg", top: "12%", left: "35%" }}
-              text="Modern C++17 & C#"
+              style={{ rotate: "10deg", top: "12%", left: "36%" }}
+              text="C++17 & Tensor Cores"
               containerRef={grid2Container}
             />
             <Card
-              style={{ rotate: "-8deg", top: "8%", left: "68%" }}
+              style={{ rotate: "-8deg", top: "7%", left: "70%" }}
               text="Gemini API"
               containerRef={grid2Container}
             />
             <Card
-              style={{ rotate: "15deg", top: "30%", left: "15%" }}
+              style={{ rotate: "15deg", top: "31%", left: "12%" }}
               text=".NET 10 & Azure"
               containerRef={grid2Container}
             />
             <Card
-              style={{ rotate: "-12deg", top: "32%", left: "52%" }}
+              style={{ rotate: "-12deg", top: "32%", left: "54%" }}
               text="React & Next.js"
               containerRef={grid2Container}
             />
             <Card
-              style={{ rotate: "8deg", top: "50%", left: "30%" }}
-              text="PostgreSQL & Redis"
+              style={{ rotate: "8deg", top: "54%", left: "30%" }}
+              text="Kotlin & Compose"
               containerRef={grid2Container}
             />
             <Card
-              style={{ rotate: "-15deg", top: "48%", left: "60%" }}
-              text="Tensor Core GEMM"
+              style={{ rotate: "-15deg", top: "55%", left: "67%" }}
+              text="SwiftUI & MapKit"
               containerRef={grid2Container}
             />
             <Card
-              style={{ rotate: "-10deg", top: "70%", left: "8%" }}
-              text="Docker & CMake"
-              containerRef={grid2Container}
-            />
-            <Card
-              style={{ rotate: "12deg", top: "72%", left: "42%" }}
-              text="MongoDB & MySQL"
-              containerRef={grid2Container}
-            />
-            <Card
-              style={{ rotate: "5deg", top: "68%", left: "70%" }}
-              text="Distributed Systems"
-              containerRef={grid2Container}
-            />
-            <Card
-              style={{ rotate: "-5deg", top: "88%", left: "22%" }}
-              text="Kotlin & Swift"
-              containerRef={grid2Container}
-            />
-            <Card
-              style={{ rotate: "8deg", top: "85%", left: "58%" }}
-              text="Jetpack Compose"
-              containerRef={grid2Container}
-            />
-            <Card
-              style={{ rotate: "-12deg", top: "45%", left: "2%" }}
-              text="LeetCode 1650 Rating"
+              style={{ rotate: "-7deg", top: "78%", left: "18%" }}
+              text="LeetCode · 1780"
               containerRef={grid2Container}
             />
           </div>
@@ -106,7 +82,7 @@ const About = () => {
           <div className="z-10 w-[50%]">
             <p className="headtext">Location & Time Zone</p>
             <p className="subtext">
-              I am based in Mumbai, Maharashtra, India, and open to remote, hybrid, and on-site engineering roles worldwide.
+              Mumbai, Maharashtra, India · Indian Standard Time (IST).
             </p>
           </div>
           <figure className="absolute left-[30%] top-[10%]">
@@ -116,13 +92,11 @@ const About = () => {
         {/* Grid 4 */}
         <div className="grid-special-color grid-4">
           <div className="flex flex-col items-center justify-center gap-4 size-full">
-            <p className="text-center headtext">
-              Do you want to start a project together?
-            </p>
+            <p className="text-center headtext">Have a project in mind?</p>
             <div className="flex flex-col sm:flex-row gap-3 items-center">
               <CopyEmailButton />
               <a
-                href="Aadi_Shah_Resume.pdf"
+                href={`${import.meta.env.BASE_URL}Aadi_Shah_Resume.pdf`}
                 download="Aadi_Shah_Resume.pdf"
                 className="inline-flex items-center justify-center gap-2 px-5 py-3.5 text-sm font-semibold rounded-full border border-white/10 bg-midnight hover:bg-midnight/80 hover-animation cursor-pointer text-white w-[12rem] text-center"
               >
@@ -139,10 +113,15 @@ const About = () => {
           <div className="mb-3">
             <p className="headtext mt-0 mb-1">Tech Stack</p>
             <p className="text-xs text-neutral-400">
-              Technologies used across GPU, web, backend, and mobile projects.
+              The tools behind the work, with a few of them in orbit.
             </p>
           </div>
-          <TechStack />
+          <div className="grid min-h-0 min-w-0 flex-1 grid-cols-1 items-center gap-2 sm:grid-cols-[minmax(0,1fr)_15rem]">
+            <TechStack />
+            <div aria-hidden="true" className="relative mx-auto flex h-[11rem] w-full max-w-[11rem] items-center justify-center">
+              <Frameworks />
+            </div>
+          </div>
         </div>
       </div>
     </section>

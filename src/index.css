@@ -119,8 +119,14 @@ body {
 
 .tech-stack-card {
   height: auto;
-  min-height: 24rem;
+  min-height: 31rem;
   padding: 1rem;
+}
+
+@media (width >= 40rem) and (width < 48rem) {
+  .tech-stack-card {
+    min-height: 22rem;
+  }
 }
 
 @media (width >= 48rem) {

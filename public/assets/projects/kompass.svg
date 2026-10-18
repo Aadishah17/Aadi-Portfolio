@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1280" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="66" y1="40" x2="650" y2="1210" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#131b2b"/>
+      <stop offset="1" stop-color="#080d17"/>
+    </linearGradient>
+    <linearGradient id="route" x1="238" y1="730" x2="490" y2="355" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+  </defs>
+  <rect width="720" height="1280" rx="56" fill="#060a12"/>
+  <rect x="20" y="20" width="680" height="1240" rx="44" fill="url(#bg)" stroke="#475569" stroke-opacity=".6"/>
+  <text x="70" y="116" fill="#f8fafc" font-family="system-ui,sans-serif" font-size="36" font-weight="700">Kompass</text>
+  <text x="70" y="154" fill="#94a3b8" font-family="ui-monospace,monospace" font-size="15" letter-spacing="3">OFFLINE NAVIGATION</text>
+  <rect x="70" y="196" width="580" height="610" rx="28" fill="#101a27" stroke="#334155"/>
+  <path d="M114 255l92 70 66-35 83 92 68-14 95 80M116 457l86-74 85 46 70-77 91 54 91-28M113 650l94-52 73 32 80-70 77 35 98-81" stroke="#334155" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M198 708c35-73 52-79 76-98 40-31 42-81 68-106 28-27 52-23 76-56 24-32 16-62 43-83 25-20 44-20 81-43" stroke="url(#route)" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="198" cy="708" r="22" fill="#38bdf8" stroke="#dbeafe" stroke-width="7"/>
+  <circle cx="542" cy="322" r="23" fill="#a78bfa" stroke="#ede9fe" stroke-width="7"/>
+  <circle cx="368" cy="504" r="32" fill="#111827" stroke="#e0f2fe" stroke-opacity=".85" stroke-width="3"/>
+  <path d="M368 480l8 24-8 24-8-24 8-24z" fill="#bae6fd"/>
+  <rect x="70" y="846" width="580" height="86" rx="22" fill="#0e1724" stroke="#334155"/>
+  <circle cx="112" cy="889" r="9" fill="#34d399"/>
+  <text x="140" y="883" fill="#e2e8f0" font-family="system-ui,sans-serif" font-size="18" font-weight="600">GPS location stays on device</text>
+  <text x="140" y="910" fill="#64748b" font-family="ui-monospace,monospace" font-size="13">NO NETWORK REQUESTS</text>
+  <rect x="70" y="962" width="580" height="190" rx="22" fill="#101a27" stroke="#334155"/>
+  <text x="104" y="1010" fill="#94a3b8" font-family="ui-monospace,monospace" font-size="14" letter-spacing="2">LOCAL ROUTING ENGINE</text>
+  <text x="104" y="1060" fill="#f8fafc" font-family="system-ui,sans-serif" font-size="25" font-weight="600">Route · ETA · Directions</text>
+  <text x="104" y="1101" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="17">Calculated on device with Haversine distance.</text>
+  <text x="70" y="1203" fill="#64748b" font-family="ui-monospace,monospace" font-size="14" letter-spacing="2">SWIFTUI / MAPKIT / CORELOCATION</text>
+</svg>

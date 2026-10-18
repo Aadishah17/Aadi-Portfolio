@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="80" y1="40" x2="1100" y2="660" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111a2b"/>
+      <stop offset="1" stop-color="#060a14"/>
+    </linearGradient>
+    <linearGradient id="beam" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#7dd3fc"/>
+      <stop offset="1" stop-color="#818cf8"/>
+    </linearGradient>
+    <pattern id="grid" width="38" height="38" patternUnits="userSpaceOnUse">
+      <path d="M38 0H0v38" stroke="#ffffff" stroke-opacity=".045"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="680" rx="28" fill="url(#bg)"/>
+  <rect width="1200" height="680" rx="28" fill="url(#grid)"/>
+  <circle cx="965" cy="335" r="245" fill="#2563eb" fill-opacity=".08"/>
+  <text x="76" y="94" fill="#93c5fd" font-family="ui-monospace,monospace" font-size="18" letter-spacing="4">GPU SYSTEMS / C++17</text>
+  <text x="72" y="184" fill="#f8fafc" font-family="system-ui,sans-serif" font-size="62" font-weight="700">CUDADL</text>
+  <text x="76" y="230" fill="#aab6c8" font-family="system-ui,sans-serif" font-size="23">Tensor primitives, memory pools, custom CUDA kernels.</text>
+  <g transform="translate(710 122)">
+    <rect width="338" height="338" rx="34" fill="#0c1322" stroke="#64748b" stroke-opacity=".45"/>
+    <rect x="22" y="22" width="294" height="294" rx="24" fill="#111d30"/>
+    <path d="M54 54h230v230H54z" stroke="#334155"/>
+    <path d="M111 54v230M169 54v230M226 54v230M54 111h230M54 169h230M54 226h230" stroke="#334155"/>
+    <path d="M55 55h55v55H55zM169 55h57v55h-57zM111 112h58v56h-58zM226 169h57v57h-57zM55 226h56v57H55zM169 226h57v57h-57z" fill="url(#beam)" fill-opacity=".8"/>
+    <path d="M82 82h230M82 82v230" stroke="#e0f2fe" stroke-opacity=".45" stroke-width="2"/>
+    <text x="44" y="376" fill="#94a3b8" font-family="ui-monospace,monospace" font-size="14" letter-spacing="3">WMMA / FP16 / BF16</text>
+  </g>
+  <g transform="translate(76 330)">
+    <rect width="265" height="170" rx="18" fill="#0b1220" stroke="#334155"/>
+    <text x="24" y="62" fill="#7dd3fc" font-family="system-ui,sans-serif" font-size="40" font-weight="700">253×</text>
+    <text x="24" y="101" fill="#cbd5e1" font-family="system-ui,sans-serif" font-size="16">lower allocation latency</text>
+    <text x="24" y="132" fill="#64748b" font-family="ui-monospace,monospace" font-size="12">STREAM-ORDERED POOL</text>
+  </g>
+  <g transform="translate(365 330)">
+    <rect width="265" height="170" rx="18" fill="#0b1220" stroke="#334155"/>
+    <text x="24" y="62" fill="#a5b4fc" font-family="system-ui,sans-serif" font-size="40" font-weight="700">97%</text>
+    <text x="24" y="101" fill="#cbd5e1" font-family="system-ui,sans-serif" font-size="16">of cuBLAS throughput</text>
+    <text x="24" y="132" fill="#64748b" font-family="ui-monospace,monospace" font-size="12">TENSOR CORE GEMM</text>
+  </g>
+  <text x="76" y="590" fill="#64748b" font-family="ui-monospace,monospace" font-size="15" letter-spacing="2">CUDA 13.x  /  CMAKE  /  STREAMS</text>
+</svg>
