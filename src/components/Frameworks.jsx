@@ -17,6 +17,7 @@ const innerLogos = [
   "git.svg",
   "docker.svg",
   "postgresql.svg",
+  "xcode.svg",
 ];
 
 const Logo = ({ name }) => (
