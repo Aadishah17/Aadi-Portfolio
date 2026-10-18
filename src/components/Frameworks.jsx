@@ -7,6 +7,7 @@ const outerLogos = [
   "react.svg",
   "python.svg",
   "kotlin.svg",
+  "swift.svg",
 ];
 
 const innerLogos = [
