@@ -110,15 +110,10 @@ const About = () => {
         </div>
         {/* Grid 5 - Tech Stack */}
         <div className="grid-default-color grid-5 tech-stack-card flex flex-col">
-          <div className="mb-3">
-            <p className="headtext mt-0 mb-1">Tech Stack</p>
-            <p className="text-xs text-neutral-400">
-              The tools behind the work, with a few of them in orbit.
-            </p>
-          </div>
-          <div className="grid min-h-0 min-w-0 flex-1 grid-cols-1 items-center gap-2 sm:grid-cols-[minmax(0,1fr)_15rem]">
+          <p className="headtext mt-0 mb-3">Tech Stack</p>
+          <div className="grid min-h-0 min-w-0 flex-1 grid-cols-1 items-center gap-2 sm:grid-cols-[minmax(0,1fr)_13rem]">
             <TechStack />
-            <div aria-hidden="true" className="relative mx-auto flex h-[11rem] w-full max-w-[11rem] items-center justify-center">
+            <div aria-hidden="true" className="relative mx-auto flex h-48 w-full max-w-48 items-center justify-center">
               <Frameworks />
             </div>
           </div>

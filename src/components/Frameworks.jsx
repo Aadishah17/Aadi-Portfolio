@@ -1,10 +1,13 @@
 import { OrbitingCircles } from "./OrbitingCircles";
 
-const logos = [
+const outerLogos = [
   "cplusplus.svg",
   "csharp.svg",
   "javascript.svg",
   "react.svg",
+];
+
+const innerLogos = [
   "dotnet.svg",
   "azure.svg",
   "github.svg",
@@ -23,12 +26,12 @@ export function Frameworks() {
   return (
     <div className="relative flex size-full items-center justify-center">
       <OrbitingCircles iconSize={30} radius={82}>
-        {logos.map((name) => (
+        {outerLogos.map((name) => (
           <Logo key={name} name={name} />
         ))}
       </OrbitingCircles>
       <OrbitingCircles iconSize={20} radius={50} reverse speed={1.5}>
-        {[...logos].reverse().map((name) => (
+        {innerLogos.map((name) => (
           <Logo key={name} name={name} />
         ))}
       </OrbitingCircles>
