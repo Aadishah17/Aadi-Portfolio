@@ -1,12 +1,10 @@
 import { lazy, Suspense } from "react";
 import HeroText from "../components/HeroText";
 import ParallaxBackground from "../components/parallaxBackground";
-import { useMediaQuery } from "react-responsive";
 
 const HeroScene = lazy(() => import("../components/HeroScene"));
 
 const Hero = () => {
-  const isMobile = useMediaQuery({ maxWidth: 853 });
   return (
     <section id="home" className="flex items-start justify-center min-h-screen overflow-hidden md:items-start md:justify-start c-space">
       <HeroText />
@@ -25,7 +23,7 @@ const Hero = () => {
             </div>
           }
         >
-          <HeroScene isMobile={isMobile} />
+          <HeroScene />
         </Suspense>
       </figure>
     </section>
