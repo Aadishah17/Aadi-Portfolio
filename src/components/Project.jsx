@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import ProjectDetails from "./ProjectDetails";
 
 const Project = ({
@@ -13,6 +13,7 @@ const Project = ({
   setPreview,
 }) => {
   const [isHidden, setIsHidden] = useState(false);
+  const closeModal = useCallback(() => setIsHidden(false), []);
   return (
     <>
       <div
@@ -47,7 +48,7 @@ const Project = ({
           tags={tags}
           github={github}
           live={live}
-          closeModal={() => setIsHidden(false)}
+          closeModal={closeModal}
         />
       )}
     </>

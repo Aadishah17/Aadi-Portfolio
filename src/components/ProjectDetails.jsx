@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useId, useRef } from "react";
 import { motion } from "motion/react";
 
 const ProjectDetails = ({
@@ -12,17 +12,54 @@ const ProjectDetails = ({
   live,
   closeModal,
 }) => {
+  const titleId = useId();
+  const dialogRef = useRef(null);
+  const closeButtonRef = useRef(null);
+
   useEffect(() => {
+    const previousActiveElement = document.activeElement;
+    const previousBodyOverflow = document.body.style.overflow;
+
     const handleKeyDown = (e) => {
       if (e.key === "Escape") {
         closeModal();
+        return;
+      }
+
+      if (e.key !== "Tab") return;
+
+      const focusableElements = dialogRef.current?.querySelectorAll(
+        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      );
+      const firstElement = focusableElements?.[0];
+      const lastElement = focusableElements?.[focusableElements.length - 1];
+      const activeElementIndex = Array.from(focusableElements ?? []).indexOf(
+        document.activeElement,
+      );
+
+      if (!firstElement || !lastElement) {
+        e.preventDefault();
+        dialogRef.current?.focus();
+      } else if (activeElementIndex === -1) {
+        e.preventDefault();
+        (e.shiftKey ? lastElement : firstElement).focus();
+      } else if (e.shiftKey && document.activeElement === firstElement) {
+        e.preventDefault();
+        lastElement.focus();
+      } else if (!e.shiftKey && document.activeElement === lastElement) {
+        e.preventDefault();
+        firstElement.focus();
       }
     };
+
     document.body.style.overflow = "hidden";
     window.addEventListener("keydown", handleKeyDown);
+    closeButtonRef.current?.focus();
+
     return () => {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = previousBodyOverflow;
       window.removeEventListener("keydown", handleKeyDown);
+      previousActiveElement?.focus?.();
     };
   }, [closeModal]);
 
@@ -32,6 +69,11 @@ const ProjectDetails = ({
       onClick={closeModal}
     >
       <motion.div
+        ref={dialogRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={titleId}
+        tabIndex={-1}
         className="relative max-w-3xl w-full border shadow-2xl rounded-2xl bg-gradient-to-l from-midnight to-navy border-white/10 overflow-hidden my-auto"
         initial={{ opacity: 0, scale: 0.85 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -39,11 +81,12 @@ const ProjectDetails = ({
         onClick={(e) => e.stopPropagation()}
       >
         <button
+          ref={closeButtonRef}
           onClick={closeModal}
           aria-label="Close modal"
           className="absolute p-2 rounded-lg top-4 right-4 bg-midnight/90 hover:bg-neutral-700/80 transition-colors z-10 cursor-pointer border border-white/10"
         >
-          <img src="assets/close.svg" className="w-5 h-5" alt="close" />
+          <img src="assets/close.svg" className="w-5 h-5" alt="" />
         </button>
 
         {layout === "portrait" ? (
@@ -61,7 +104,7 @@ const ProjectDetails = ({
             {/* Right side: details */}
             <div className="md:col-span-7 flex flex-col justify-between h-full">
               <div>
-                <h5 className="mb-2 text-2xl font-bold text-white">{title}</h5>
+                <h2 id={titleId} className="mb-2 text-2xl font-bold text-white">{title}</h2>
                 <p className="mb-4 font-normal text-neutral-400 text-sm leading-relaxed">{description}</p>
                 <div className="max-h-60 overflow-y-auto mb-4 pr-2">
                   {subDescription.map((subDesc, index) => (
@@ -124,7 +167,7 @@ const ProjectDetails = ({
           <>
             <img src={image} alt={title} className="w-full rounded-t-2xl max-h-72 object-cover border-b border-white/5" />
             <div className="p-5">
-              <h5 className="mb-2 text-2xl font-bold text-white">{title}</h5>
+              <h2 id={titleId} className="mb-2 text-2xl font-bold text-white">{title}</h2>
               <p className="mb-3 font-normal text-neutral-400">{description}</p>
               <div className="max-h-40 overflow-y-auto mb-4 pr-2">
                 {subDescription.map((subDesc, index) => (
